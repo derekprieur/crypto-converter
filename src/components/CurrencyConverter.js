@@ -5,14 +5,16 @@ import axios from "axios"
 export default function CurrencyConverter() {
     const currencies = ['BTC', 'ETH', 'USD', 'XRP', 'LTC', 'ADA']
     const [chosenPrimaryCurrency, setChosenPrimaryCurrency] = useState('BTC')
-    const [chosenSecondaryCurrency, setChosenSecondaryCurrency] = useState('BTC')
+    const [chosenSecondaryCurrency, setChosenSecondaryCurrency] = useState('USD')
     const [amount, setAmount] = useState(1)
     const [exchangeRate, setExchangeRate] = useState(0)
     const [result, setResult] = useState(0)
     const [primaryCurrencyExchanged, setPrimaryCurrencyExchanged] = useState('BTC')
-    const [secondaryCurrencyExchanged, setSecondaryCurrencyExchanged] = useState('BTC')
+    const [secondaryCurrencyExchanged, setSecondaryCurrencyExchanged] = useState('USD')
+    const [conversionVisibility, setConversionVisibility] = useState('convert')
 
     function convert() {
+
         const options = {
             method: 'GET',
             url: 'https://alpha-vantage.p.rapidapi.com/query',
@@ -31,7 +33,7 @@ export default function CurrencyConverter() {
         }).catch(function (error) {
             console.error(error);
         });
-
+        setConversionVisibility('show')
     }
 
     return (
@@ -86,6 +88,7 @@ export default function CurrencyConverter() {
                     chosenSecondaryCurrency={secondaryCurrencyExchanged}
                     result={result}
                     amount={amount}
+                    conversionVisibility={conversionVisibility}
                 />
             </div>
         </div>

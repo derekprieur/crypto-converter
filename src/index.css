@@ -74,8 +74,14 @@ code {
   border-radius: 10px;
 }
 
-.exchange>h1 {
+.convert {
   color: #ffff33;
+  visibility: hidden;
+}
+
+.show {
+  color: #ffff33;
+  visibility: visible;
 }
 
 button {

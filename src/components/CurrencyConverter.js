@@ -42,9 +42,10 @@ export default function CurrencyConverter() {
                     <table>
                         <tbody>
                             <tr>
-                                <td>Primary Currency:</td>
-                                <td>
+                                <td
+                                    className="input1">
                                     <input
+                                        className="input1"
                                         type="number"
                                         name="currency-amount-1"
                                         value={amount}
@@ -60,15 +61,8 @@ export default function CurrencyConverter() {
                                         {currencies.map((currency, _index) => (<option key={_index}>{currency}</option>))}
                                     </select>
                                 </td>
-                            </tr>
-                            <tr>
-                                <td>Secondary Currency:</td>
                                 <td>
-                                    <input
-                                        type="number"
-                                        name="currency-amount-2"
-                                        value={result}
-                                        disabled={true} />
+                                    <div>to</div>
                                 </td>
                                 <td>
                                     <select
@@ -90,6 +84,8 @@ export default function CurrencyConverter() {
                     exchangeRate={exchangeRate}
                     chosenPrimaryCurrency={primaryCurrencyExchanged}
                     chosenSecondaryCurrency={secondaryCurrencyExchanged}
+                    result={result}
+                    amount={amount}
                 />
             </div>
         </div>

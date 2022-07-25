@@ -6,5 +6,5 @@ Hello! I made this crypto converter app to get more practice with React. The ori
 - axios.request().then()
 - const [var, setVar] = useState()
 - className
-- <td>
+- td
 - props
